@@ -32,7 +32,7 @@ class koinList implements vscode.TreeDataProvider<any> {
 		const data: baseCoinInterface[] = res?.data?.data || [];
 		// console.log(data?.filter(({symbol}) => symbol === 'btcusdt'));
 		const parsedData = getData(data);
-		console.log('psdt', parsedData);
+		console.log('parsedData', parsedData);
 		return Promise.resolve(
 			parsedData?.map(({label}) => new TreeViewItem(label)) || []
 		);
