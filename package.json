@@ -10,9 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onView:coinCheckerView",
-    "onCommand:koin.helloWorld",
-    "onCommand:koin.registerDataProvider"
+    "koin.registerDataProvider",
+    "koin.star"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -23,7 +22,16 @@
       },
       {
         "command": "koin.registerDataProvider",
-        "title": "koin registerDataProvider"
+        "title": "koin:registerDataProvider"
+      },
+
+      {
+        "command": "koin.star",
+        "title": "koin:star",
+        "icon": {
+          "light": "resources/light/star.png",
+          "dark": "resources/dark/star.png"
+        }
       }
     ],
     "viewsContainers": {
@@ -43,17 +51,31 @@
           "contextualTitle": "Package Explorer"
         }
       ]
+    },
+
+    "menus": {
+      "view/title": [
+        {
+          "command": "coinCheckerView.registerDataProvider",
+          "when": "view == coinCheckerView",
+          "alt": "title",
+          "group": "navigation"
+        }
+      ],
+  
+      "view/item/context": [
+        {
+          "command": "koin.star",
+          "when": "view == coinCheckerView",
+          "alt": "",
+          "group": "inline"
+        }
+  
+      ]
+  
     }
   },
-  "menus": {
-    "view/title": [
-      {
-        "command": "coinCheckerView.registerDataProvider",
-        "when": "view == coinCheckerView",
-        "group": "navigation"
-      }
-    ]
-  },
+
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",

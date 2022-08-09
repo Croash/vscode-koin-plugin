@@ -6,6 +6,7 @@ import DataProvider from './koinList';
 let coinViewTimer: NodeJS.Timer | number | null = null;
 
 export function activate(context: vscode.ExtensionContext) {
+	// const subscriptions = []
 	let disposable = vscode.commands.registerCommand('koin.registerDataProvider', () => {
 		const callback = () => {
 			const data = new DataProvider();
@@ -18,7 +19,18 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		vscode.window.showInformationMessage('Create coin-checker-view!');
 	});
+
+	const startCmd = vscode.commands.registerCommand('koin.star', () => {
+		const textEditor = vscode.window.activeTextEditor;
+		const selectionCode = textEditor?.document.getText(textEditor.selection);
+		console.log('selectionCode', selectionCode);
+		vscode.window.showInformationMessage('koin edit!!');
+	});
+
+
+	// subscriptions.forEach(subs => context.subscriptions.push(subs))
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(startCmd);
 }
 
 export function deactivate() {

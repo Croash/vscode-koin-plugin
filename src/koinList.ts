@@ -31,17 +31,14 @@ class koinList implements vscode.TreeDataProvider<any> {
     const res: any = await axios.get('https://api.huobi.pro/market/tickers');
 		const data: baseCoinInterface[] = res?.data?.data || [];
 		// console.log(data?.filter(({symbol}) => symbol === 'btcusdt'));
-		const parsedData = getData(data);
-		console.log('parsedData', parsedData);
+		let parsedData = getData(data);
+		// parsedData = [{label: '123'}, { label: 'test' }, { label: 'asdt' }];
+		// console.log('parsedData', parsedData);
 		return Promise.resolve(
 			parsedData?.map(({label}) => new TreeViewItem(label)) || []
 		);
 
-		// return Promise.resolve([
-		// 	new TreeViewItem('TreeItem-01'),
-		// 	new TreeViewItem('TreeItem-02'),
-		// 	new TreeViewItem('TreeItem-03'),
-		// ]);
+
 	}
 }
 

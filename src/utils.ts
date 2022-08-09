@@ -8,6 +8,7 @@ export enum filList {
   'ethusdt' = 'ETH',
   'dogeusdt' = 'DOGE',
   'ltcusdt' = 'LTC',
+  'shibusdt' = 'SHIB',
   'filusdt' = 'FIL',
   'zenusdt' = 'ZEN',
   'dydxusdt' = 'DYDX'
