@@ -1,13 +1,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import DataProvider from './koinList';
+import DataProvider from './coinViewerList';
 
 let coinViewTimer: NodeJS.Timer | number | null = null;
 
 export function activate(context: vscode.ExtensionContext) {
 	// const subscriptions = []
-	let disposable = vscode.commands.registerCommand('koin.registerDataProvider', () => {
+	let disposable = vscode.commands.registerCommand('coinViewer.viewCoin', () => {
 		const callback = () => {
 			const data = new DataProvider();
 			// By default, registerTreeDataProvider will run while the page in the view. 
@@ -20,11 +20,11 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Create coin-checker-view!');
 	});
 
-	const startCmd = vscode.commands.registerCommand('koin.star', () => {
+	const startCmd = vscode.commands.registerCommand('coinViewer.star', () => {
 		const textEditor = vscode.window.activeTextEditor;
 		const selectionCode = textEditor?.document.getText(textEditor.selection);
 		console.log('selectionCode', selectionCode);
-		vscode.window.showInformationMessage('koin edit!!');
+		vscode.window.showInformationMessage('coinViewer edit!!');
 	});
 
 

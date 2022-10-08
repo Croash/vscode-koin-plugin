@@ -1,3 +1,7 @@
+import * as vscode from "vscode";
+const allConfig = vscode.workspace.getConfiguration();
+const config = allConfig.coinViewerConfig;
+
 export enum upStatus {
 	up = '📈',
 	down = '📉'
@@ -14,15 +18,6 @@ export enum filList {
   'dydxusdt' = 'DYDX'
 };
 
-// export const filList = {
-//   btcusdt :'BTC',
-//   ethusdt :'ETH',
-//   dogeusdt :'DOGE',
-//   ltcusdt :'LTC',
-//   filusdt :'FIL',
-//   zenusdt :'ZEN',
-//   dydxusdt :'DYDX',
-// };
 type filListType = keyof typeof filList;
 export interface baseCoinInterface {
   symbol: filListType | string //filList | string 
@@ -38,6 +33,11 @@ export interface coinInterface {
 }
 
 export function getData(initArr: baseCoinInterface[]) : coinInterface[] {
+  // const _filList = config.reduce(
+  //   (originObj, _c) => ({ ...originObj, [`${_c.toLowerCase()}usdt`]: _c  }),
+  // {});
+  // console.log('???, _filList', _filList);
+
   const arr = initArr?.filter(({symbol}) => {
     return !!filList[symbol as filListType];
   }).map(({ symbol, open, close }) => {
