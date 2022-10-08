@@ -51,7 +51,7 @@
       "activitybar": [
         {
           "id": "coin-checker",
-          "title": "Package Explorer",
+          "title": "CryptoCoinViewer",
           "icon": "media/koin.png"
         }
       ]
@@ -61,7 +61,7 @@
         {
           "id": "coinViewList",
           "name": "usdt and eth",
-          "contextualTitle": "Package Explorer"
+          "contextualTitle": "CryptoCoinViewer"
         }
       ]
     },
