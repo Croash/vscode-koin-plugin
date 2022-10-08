@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const callback = () => {
 			const data = new DataProvider();
 			// By default, registerTreeDataProvider will run while the page in the view. 
-			vscode.window.registerTreeDataProvider('coinCheckerView',data);
+			vscode.window.registerTreeDataProvider('coinViewList',data);
 		};
 		if(!coinViewTimer) {
 			setImmediate(callback);

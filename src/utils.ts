@@ -37,7 +37,7 @@ export function getData(initArr: baseCoinInterface[]) : coinInterface[] {
   //   (originObj, _c) => ({ ...originObj, [`${_c.toLowerCase()}usdt`]: _c  }),
   // {});
   // console.log('???, _filList', _filList);
-
+  vscode.window.showInformationMessage('1234', config);
   const arr = initArr?.filter(({symbol}) => {
     return !!filList[symbol as filListType];
   }).map(({ symbol, open, close }) => {

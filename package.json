@@ -11,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onView:coinCheckerView",
+    "onView:coinViewList",
     "onCommand:coinViewer.star",
     "onCommand:coinViewer.viewCoin"
   ],
@@ -52,14 +52,14 @@
         {
           "id": "coin-checker",
           "title": "Package Explorer",
-          "icon": "media/coinViewer.png"
+          "icon": "media/koin.png"
         }
       ]
     },
     "views": {
       "coin-checker": [
         {
-          "id": "coinCheckerView",
+          "id": "coinViewList",
           "name": "usdt and eth",
           "contextualTitle": "Package Explorer"
         }
@@ -69,8 +69,8 @@
     "menus": {
       "view/title": [
         {
-          "command": "coinCheckerView.viewCoin",
-          "when": "view == coinCheckerView",
+          "command": "coinViewer.viewCoin",
+          "when": "view == coinViewList",
           "alt": "title",
           "group": "navigation"
         }
@@ -79,7 +79,7 @@
       "view/item/context": [
         {
           "command": "coinViewer.star",
-          "when": "view == coinCheckerView",
+          "when": "view == coinViewList",
           "alt": "",
           "group": "inline"
         }
