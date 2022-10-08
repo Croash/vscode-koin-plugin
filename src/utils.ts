@@ -33,17 +33,16 @@ export interface coinInterface {
 }
 
 export function getData(initArr: baseCoinInterface[]) : coinInterface[] {
-  // const _filList = config.reduce(
-  //   (originObj, _c) => ({ ...originObj, [`${_c.toLowerCase()}usdt`]: _c  }),
-  // {});
-  // console.log('???, _filList', _filList);
-  vscode.window.showInformationMessage('1234', config);
+  
+  const _filList = config.coinList.reduce(
+    (originObj: any, _c: any) => ({ ...originObj, [`${_c.toLowerCase()}usdt`]: _c  }),
+  {});
   const arr = initArr?.filter(({symbol}) => {
-    return !!filList[symbol as filListType];
+    return !!_filList[symbol as filListType];
   }).map(({ symbol, open, close }) => {
     const bigger = close > open;
     return {
-      label: `${bigger ? upStatus['up'] : upStatus['down']} ${filList[symbol as filListType]} ${close} ${((close / open)*100 - 100).toFixed(2)}%`
+      label: `${bigger ? upStatus['up'] : upStatus['down']} ${_filList[symbol as filListType]} ${close} ${((close / open)*100 - 100).toFixed(2)}%`
     };
   });
   return arr;
