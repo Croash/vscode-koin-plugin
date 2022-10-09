@@ -101,5 +101,5 @@ public/**/*
 
 ios/Pods
 
-
-Pampasfile.js
+# vsix
+*.vsix
